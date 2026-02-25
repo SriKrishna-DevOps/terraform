@@ -1,3 +1,7 @@
+variable "environment" {
+    default= "dev"
+}
+
 variable "ami_identity" {
     type = string
     default= "ami-0220d79f3f480ecf5"
@@ -6,11 +10,6 @@ variable "ami_identity" {
 variable "instance_type" {
     type = string
     default= "t3.micro"
-}
-
-variable "sg_name" {
-    type = string
-    default= "allow_all_traffic_default"
 }
 
 

@@ -1,13 +1,13 @@
 resource "aws_instance" "example" {
   ami           = var.ami_identity
-  instance_type = var.instance_type
+  instance_type = var.environment == "dev" ? "t3.micro" : "t3.large"
   vpc_security_group_ids = [aws_security_group.web_server_sg_tf.id]
 
   tags = var.tags
 }
 
 resource "aws_security_group" "web_server_sg_tf" {
-  name        = var.sg_name
+  name        = "web-server-sg-tf_AWS"
   description = "Allow HTTPS to web server"
 
   ingress {
